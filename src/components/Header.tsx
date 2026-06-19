@@ -26,7 +26,7 @@ export default function Header() {
     <header className="sticky top-0 z-40 border-b border-black/10 bg-panel/95 backdrop-blur dark:border-white/10 dark:bg-ink/95">
       <div className="mx-auto flex max-w-7xl items-center gap-3 px-4 py-3 sm:px-6 lg:px-8">
         <Link href="/" className="text-xl font-black tracking-tight text-brand">
-          StreamNest
+          StreamNest by Saurabh
         </Link>
         <form onSubmit={submit} className="flex min-w-0 flex-1 items-center rounded-full border border-black/10 bg-white px-3 py-2 dark:border-white/10 dark:bg-white/10">
           <Search className="h-4 w-4 shrink-0 opacity-70" />
