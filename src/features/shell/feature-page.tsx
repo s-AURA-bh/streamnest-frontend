@@ -1,0 +1,99 @@
+"use client";
+
+import type { LucideIcon } from "lucide-react";
+import { motion } from "framer-motion";
+import { ArrowUpRight, Plus, Sparkles } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+
+interface FeaturePageProps {
+  title: string;
+  eyebrow: string;
+  description: string;
+  icon: LucideIcon;
+  primaryAction: string;
+  highlights: Array<{ label: string; value: string; detail: string }>;
+  futureNote: string;
+}
+
+export function FeaturePage({
+  title,
+  eyebrow,
+  description,
+  icon: Icon,
+  primaryAction,
+  highlights,
+  futureNote
+}: FeaturePageProps) {
+  return (
+    <div className="mx-auto w-full max-w-[1440px] px-4 py-6 sm:px-6 lg:px-10 lg:py-9">
+      <motion.div
+        initial={{ opacity: 0, y: 12 }}
+        animate={{ opacity: 1, y: 0 }}
+        className="relative overflow-hidden rounded-[24px] border border-white/[.07] bg-[#111116] p-6 shadow-card sm:p-9"
+      >
+        <div className="absolute -right-24 -top-28 h-72 w-72 rounded-full bg-[#8178ff]/[.08] blur-[85px]" />
+        <div className="relative flex flex-col items-start justify-between gap-7 md:flex-row md:items-end">
+          <div className="max-w-2xl">
+            <div className="flex items-center gap-2">
+              <div className="grid h-8 w-8 place-items-center rounded-xl border border-[#8178ff]/15 bg-[#8178ff]/10">
+                <Icon className="h-4 w-4 text-[#9b94ff]" />
+              </div>
+              <span className="text-[10px] font-semibold uppercase tracking-[0.18em] text-zinc-600">
+                {eyebrow}
+              </span>
+            </div>
+            <h1 className="mt-6 text-3xl font-medium tracking-[-0.04em] text-zinc-100 sm:text-4xl">
+              {title}
+            </h1>
+            <p className="mt-3 max-w-xl text-sm leading-6 text-zinc-500">
+              {description}
+            </p>
+          </div>
+          <Button>
+            <Plus className="h-4 w-4" />
+            {primaryAction}
+          </Button>
+        </div>
+      </motion.div>
+
+      <div className="mt-4 grid gap-4 md:grid-cols-3">
+        {highlights.map((highlight, index) => (
+          <motion.div
+            key={highlight.label}
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.08 + index * 0.06 }}
+          >
+            <Card className="group p-5 transition-colors hover:border-white/[.1]">
+              <div className="flex items-center justify-between">
+                <p className="text-[10px] font-medium uppercase tracking-[0.12em] text-zinc-600">
+                  {highlight.label}
+                </p>
+                <ArrowUpRight className="h-3.5 w-3.5 text-zinc-700 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+              </div>
+              <p className="mt-5 text-2xl font-medium tracking-[-0.04em] text-zinc-200">
+                {highlight.value}
+              </p>
+              <p className="mt-2 text-xs text-zinc-600">{highlight.detail}</p>
+            </Card>
+          </motion.div>
+        ))}
+      </div>
+
+      <Card className="mt-4 flex min-h-[280px] flex-col items-center justify-center border-dashed bg-[#0e0e13] px-6 text-center">
+        <div className="grid h-11 w-11 place-items-center rounded-2xl border border-white/[.07] bg-white/[.035]">
+          <Sparkles className="h-4 w-4 text-[#8f87ff]" />
+        </div>
+        <Badge className="mt-5">Foundation ready</Badge>
+        <h2 className="mt-4 text-lg font-medium text-zinc-300">
+          This space is ready to grow with you.
+        </h2>
+        <p className="mt-2 max-w-md text-xs leading-5 text-zinc-600">
+          {futureNote}
+        </p>
+      </Card>
+    </div>
+  );
+}

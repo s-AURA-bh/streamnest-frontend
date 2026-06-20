@@ -1,3 +1,0 @@
-module.exports=[55606,a=>{"use strict";var b=a.i(87924),c=a.i(50944),d=a.i(72131);a.s(["default",0,function(){(0,c.useRouter)();let[a,e]=(0,d.useState)(""),[f,g]=(0,d.useState)(!1);return(0,b.jsxs)("div",{className:"mx-auto max-w-md rounded-lg border border-black/10 bg-white p-6",children:[(0,b.jsx)("h1",{className:"text-2xl font-black",children:"Create account"}),(0,b.jsxs)("div",{className:"mt-4 rounded-md bg-yellow-100 p-4 text-yellow-800",children:["Registration and Login are temporarily disabled by the owner while the platform is under development.",(0,b.jsx)("br",{}),(0,b.jsx)("strong",{children:"— Saurabh"})]})]})}])}];
-
-//# sourceMappingURL=src_app_register_page_tsx_0l87b37._.js.map

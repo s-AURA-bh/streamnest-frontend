@@ -1,12 +1,10 @@
 {
-  "/_global-error/page": "app/_global-error/page.js",
-  "/_not-found/page": "app/_not-found/page.js",
-  "/dashboard/page": "app/dashboard/page.js",
-  "/login/page": "app/login/page.js",
   "/page": "app/page.js",
-  "/profile/page": "app/profile/page.js",
-  "/register/page": "app/register/page.js",
-  "/search/page": "app/search/page.js",
-  "/upload/page": "app/upload/page.js",
-  "/watch/[id]/page": "app/watch/[id]/page.js"
+  "/diary/page": "app/diary/page.js",
+  "/goals/page": "app/goals/page.js",
+  "/learning/page": "app/learning/page.js",
+  "/expenses/page": "app/expenses/page.js",
+  "/memory-vault/page": "app/memory-vault/page.js",
+  "/timeline/page": "app/timeline/page.js",
+  "/settings/page": "app/settings/page.js"
 }

@@ -1,20 +1,26 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { AppShell } from "@/components/app-shell";
 import { AuthProvider } from "@/lib/auth";
-import Header from "@/components/Header";
 
 export const metadata: Metadata = {
-  title: "StreamNest",
-  description: "A production-ready video sharing platform built with Next.js and FastAPI."
+  title: {
+    default: "Pulse — Your life, in motion",
+    template: "%s · Pulse"
+  },
+  description:
+    "A personal growth operating system for goals, learning, memories, reflections, and the life between them.",
+  icons: {
+    icon: "/favicon.svg"
+  }
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className="dark" suppressHydrationWarning>
       <body>
         <AuthProvider>
-          <Header />
-          <main className="mx-auto min-h-screen w-full max-w-7xl px-4 py-6 sm:px-6 lg:px-8">{children}</main>
+          <AppShell>{children}</AppShell>
         </AuthProvider>
       </body>
     </html>
