@@ -13,16 +13,14 @@
 }
 
 html {
-  background: #09090c;
+  background: #050506;
   scroll-behavior: smooth;
 }
 
 body {
   min-height: 100vh;
   margin: 0;
-  background:
-    radial-gradient(circle at 72% -10%, rgba(103, 91, 235, 0.035), transparent 28%),
-    #09090c;
+  background: #050506;
   color: #f4f4f5;
   font-family:
     Inter, "SF Pro Display", "SF Pro Text", -apple-system, BlinkMacSystemFont,
@@ -42,7 +40,7 @@ button {
 }
 
 ::selection {
-  background: rgba(139, 131, 255, 0.28);
+  background: rgba(168, 139, 250, 0.28);
   color: #fff;
 }
 
@@ -80,6 +78,180 @@ button {
   );
   content: "";
   pointer-events: none;
+}
+
+.aura-shell {
+  isolation: isolate;
+}
+
+.aura-shell::before {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.018) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.014) 1px, transparent 1px);
+  background-position: center;
+  background-size: 76px 76px;
+  mask-image: linear-gradient(to bottom, transparent, black 16%, black 72%, transparent);
+  content: "";
+}
+
+.aura-shell::after {
+  position: fixed;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0.28;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 220 220' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.78' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)' opacity='.34'/%3E%3C/svg%3E");
+  mix-blend-mode: soft-light;
+  content: "";
+}
+
+.aura-gradient-field {
+  background:
+    radial-gradient(80rem 42rem at 50% -12%, rgba(170, 139, 255, 0.2), transparent 58%),
+    radial-gradient(62rem 38rem at 92% 18%, rgba(95, 208, 255, 0.07), transparent 60%),
+    radial-gradient(72rem 42rem at 4% 72%, rgba(158, 110, 255, 0.11), transparent 62%),
+    linear-gradient(180deg, #050506 0%, #08070b 42%, #050506 100%);
+  background-size: 130% 130%, 120% 120%, 140% 140%, 100% 100%;
+  animation: aura-gradient-shift 18s ease-in-out infinite alternate;
+}
+
+.aura-grid {
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.028) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 120px 120px;
+  mask-image: radial-gradient(ellipse at center, black 0%, transparent 68%);
+  opacity: 0.2;
+}
+
+.aura-vignette {
+  background:
+    linear-gradient(to bottom, rgba(5, 5, 6, 0.15), transparent 18%, transparent 72%, rgba(5, 5, 6, 0.86)),
+    radial-gradient(ellipse at center, transparent 0%, rgba(0, 0, 0, 0.54) 82%);
+}
+
+.aura-title {
+  text-shadow:
+    0 0 22px rgba(255, 255, 255, 0.12),
+    0 0 86px rgba(168, 139, 250, 0.22),
+    0 24px 110px rgba(0, 0, 0, 0.65);
+}
+
+.aura-product-card,
+.aura-future-card,
+.aura-portrait {
+  transform-style: preserve-3d;
+}
+
+.aura-product-card::before,
+.aura-future-card::before,
+.aura-portrait::before {
+  position: absolute;
+  inset: 0;
+  padding: 1px;
+  border-radius: inherit;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.22),
+    rgba(255, 255, 255, 0.035) 38%,
+    rgba(178, 145, 255, 0.22) 72%,
+    rgba(255, 255, 255, 0.06)
+  );
+  content: "";
+  pointer-events: none;
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask-composite: exclude;
+}
+
+.aura-product-card::after {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.11), transparent 32%),
+    radial-gradient(circle at var(--glow-x) var(--glow-y), rgba(179, 146, 255, 0.2), transparent 34%);
+  opacity: 0;
+  transition: opacity 500ms ease;
+  content: "";
+  pointer-events: none;
+}
+
+.aura-product-card:hover::after {
+  opacity: 1;
+}
+
+.aura-future-card {
+  animation: aura-card-float 7s ease-in-out infinite;
+}
+
+.aura-future-card:nth-child(2n) {
+  animation-delay: -2.5s;
+}
+
+.aura-future-card:nth-child(3n) {
+  animation-delay: -4.5s;
+}
+
+.aura-portrait::after {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent),
+    radial-gradient(34rem 20rem at 50% 12%, rgba(183, 155, 255, 0.22), transparent 62%);
+  transform: translateX(-55%);
+  animation: aura-sheen 6.5s ease-in-out infinite;
+  content: "";
+  pointer-events: none;
+}
+
+.aura-vision-light {
+  background:
+    linear-gradient(90deg, transparent, rgba(165, 133, 255, 0.13), transparent),
+    radial-gradient(72rem 24rem at 50% 52%, rgba(255, 255, 255, 0.105), transparent 70%);
+  filter: blur(8px);
+}
+
+@keyframes aura-gradient-shift {
+  0% {
+    background-position: 50% 0%, 100% 18%, 0% 70%, center;
+  }
+
+  100% {
+    background-position: 48% 8%, 86% 28%, 10% 62%, center;
+  }
+}
+
+@keyframes aura-card-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes aura-sheen {
+  0%,
+  42% {
+    transform: translateX(-62%);
+    opacity: 0;
+  }
+
+  55% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(62%);
+    opacity: 0;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

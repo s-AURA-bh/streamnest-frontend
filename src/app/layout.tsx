@@ -1,15 +1,14 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { AppShell } from "@/components/app-shell";
-import { AuthProvider } from "@/lib/auth";
+import { RootChrome } from "@/components/root-chrome";
 
 export const metadata: Metadata = {
   title: {
-    default: "Pulse — Your life, in motion",
-    template: "%s · Pulse"
+    default: "AURA | Saurabh Yadav",
+    template: "%s | AURA"
   },
   description:
-    "A personal growth operating system for goals, learning, memories, reflections, and the life between them.",
+    "AURA is the personal digital identity and creative ecosystem of Saurabh Yadav.",
   icons: {
     icon: "/favicon.svg"
   }
@@ -19,9 +18,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className="dark" suppressHydrationWarning>
       <body>
-        <AuthProvider>
-          <AppShell>{children}</AppShell>
-        </AuthProvider>
+        <RootChrome>{children}</RootChrome>
       </body>
     </html>
   );
